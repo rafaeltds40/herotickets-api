@@ -10,19 +10,21 @@ describe('Event test', () =>{
             title: 'Pink Floyd',
             price: [{sector:'Pista', amount: '290' }],
             description: 'Show lendario',
+            categories: ['rock'],
             city: 'Balenario Gaivota',
             location: {
                 longitude: '-29.138986898395103',
                 latitude: '-49.61441782458897'
             },
             coupons: [],
-            date: new Date,
+            date: new Date(),
             participants: []
         };
 
         const response = await request(express)
             .post('/events')
             .field('title', event.title)
+            .field('categories', event.categories[0])
             .field('city', event.city)
             .field('description', event.description)
             .field('coupons', event.coupons)

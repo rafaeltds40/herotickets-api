@@ -1,4 +1,4 @@
-/tmp
+tmp/
 /coverage
 /node_modules
 id_rsa
