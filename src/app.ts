@@ -1,7 +1,7 @@
 import express, { Application } from 'express';
 import { connect } from './infra/database';
 import { errorMiddleware } from './middlewares/error.middleware';
-import { EventRoutes } from './routs/event.routes';
+import { EventRoutes } from './routes/event.routes';
 
 class App {
 
@@ -16,20 +16,20 @@ class App {
         connect();
     }
 
-    middlewaresInitialize() {
+    private middlewaresInitialize() {
         this.app.use(express.json());
         this.app.use(express.urlencoded({ extended:true }));
     };
 
-    initializeRoutes() {
+    private initializeRoutes() {
         this.app.use('/events', this.eventRoutes.router);
     }
 
-    interceptionError() {
+    private interceptionError() {
         this.app.use(errorMiddleware);
     };
 
-    listen() {
+    private listen() {
         this.app.listen(3575, ()=>{
             console.log('server is running');
         })

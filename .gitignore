@@ -1,3 +1,5 @@
+/tmp
+/coverage
 /node_modules
 id_rsa
 id_rsa.pub
